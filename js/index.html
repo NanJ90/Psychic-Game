@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 1</title>
+</head>
+<body>
+  <div id="game">
+    You chose: <span id="you"></span>
+    <br>
+    The Computer chose: <span id="computer"></span>
+    <br>
+    wins: <span id="wins"></span>
+    <br>
+    losses: <span id="loss"></span>
+    <br>
+    ties: <span id="ties"></span>
+  </div>
+  <script type="text/javascript">
+    // Whenever a key is pressed, alert "pressed a button".
+      var $wins = document.getElementById("wins");
+      var $loss = document.getElementById("loss");
+      var $ties= document.getElementById("ties");
+      var $youChose = document.getElementById("you");
+      var $theComputerChose = document.getElementById("computer");
+      var computerChoices=["r","p","s"];
+      var wins = 0;
+      var loss = 0;
+      var ties = 0;
+    document.onkeyup = function(event) {
+      var userGuess= event.key;    
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+      alert(userGuess + computerGuess);
+      $youChose.innerHTML= "<h1>"+ userGuess + "</h1>";
+      $theComputerChose.innerHTML="<h1>"+computerGuess + "</h1>";
+      
+      if (userGuess === "r" && computerGuess === "s"){ 
+        wins++;
+        console.log(wins);
+      }
+      else if(userGuess === "r" && computerGuess === "p"){
+        loss++;
+        console.log(loss);
+      }
+      else if(userGuess === computerGuess){
+        ties++;
+        console.log(ties);
+      }
+      else if (userGuess === "s" && computerGuess === "p"){ 
+        wins++;
+        console.log(wins);
+      }
+      else if(userGuess === "s" && computerGuess === "r"){
+        loss++;
+        console.log(loss);
+      }
+      
+      else if (userGuess === "p" && computerGuess === "r"){ 
+        wins++;
+        console.log(wins);
+      }
+      else if(userGuess === "p" && computerGuess === "s"){
+        loss++;
+        console.log(loss);
+      }
+      else {
+        alert("wrong button");
+      }
+      $wins.innerHTML = "<h1>"+wins+ "</h1>";
+      $loss.innerHTML = "<h1>"+loss+ "</h1>";
+      $ties.innerHTML = "<h1>"+ties+ "</h1>";
+     
+    };
+  </script>
+</body>
+</html>
